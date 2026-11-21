@@ -1,0 +1,68 @@
+/* Souq Mania component classes. Built only on the tokens in brand-theme.css. */
+@layer components {
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    min-height: 44px; padding-inline: 1.25rem; border-radius: var(--radius-md);
+    border: 1.5px solid transparent; font-weight: 600; font-size: 0.9375rem; line-height: 1.25rem;
+    cursor: pointer; transition: background 120ms, transform 120ms; text-align: center;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--sm-hibiscus); color: var(--sm-on-hibiscus); }
+  .btn-primary:hover { background: var(--sm-hibiscus-deep); }
+  .btn-buy { background: var(--sm-nile); color: var(--sm-on-nile); }
+  .btn-secondary { background: var(--sm-surface-raised); color: var(--sm-ink); border-color: var(--sm-line-strong); }
+  .btn-danger { background: var(--sm-ember); color: var(--sm-on-ember); }
+  .btn-ghost { background: transparent; color: var(--sm-hibiscus); padding-inline: 0.75rem; }
+  .btn-sm { min-height: 36px; padding-inline: 0.875rem; font-size: 0.8125rem; }
+  .btn[disabled], .btn[aria-disabled="true"] {
+    background: var(--sm-surface-sunken); color: var(--sm-ink-muted); border-color: var(--sm-line); cursor: not-allowed;
+  }
+
+  .field { display: flex; flex-direction: column; gap: 0.375rem; }
+  .field > label, .label { font-size: 0.875rem; font-weight: 600; color: var(--sm-ink); }
+  .hint { font-size: 0.8125rem; color: var(--sm-ink-muted); }
+  .input {
+    width: 100%; min-height: 44px; padding: 0.5rem 0.75rem; border-radius: var(--radius-md);
+    border: 1.5px solid var(--sm-line-strong); background: var(--sm-surface-raised); color: var(--sm-ink);
+    font-size: 1rem;
+  }
+  textarea.input { min-height: 120px; }
+  .input:focus-visible { outline: 2px solid var(--sm-focus); outline-offset: 1px; }
+
+  .card {
+    background: var(--sm-surface-raised); border: 1px solid var(--sm-line);
+    border-radius: var(--radius-md); box-shadow: var(--shadow-card);
+  }
+  .panel { background: var(--sm-surface-raised); border-radius: var(--radius-lg); box-shadow: var(--shadow-pop); padding: 1.25rem; }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 0.25rem; padding: 2px 10px; border-radius: var(--radius-pill);
+    font-size: 0.8125rem; font-weight: 600; line-height: 1.125rem; white-space: nowrap;
+  }
+  .badge-ok { background: var(--sm-nile-soft); color: var(--sm-nile); }
+  .badge-warn { background: var(--sm-saffron-soft); color: var(--sm-saffron-ink); }
+  .badge-bad { background: var(--sm-ember-soft); color: var(--sm-ember); }
+  .badge-hot { background: var(--sm-hibiscus-soft); color: var(--sm-hibiscus-deep); }
+  .badge-muted { background: var(--sm-surface-sunken); color: var(--sm-ink-muted); }
+  .badge-solid { background: var(--sm-nile); color: var(--sm-on-nile); }
+
+  .notice { border-radius: var(--radius-md); padding: 0.75rem 1rem; font-size: 0.9375rem; }
+  .notice-ok { background: var(--sm-nile-soft); color: var(--sm-ink); }
+  .notice-warn { background: var(--sm-saffron-soft); color: var(--sm-ink); }
+  .notice-bad { background: var(--sm-ember-soft); color: var(--sm-ink); }
+
+  .timer {
+    display: inline-flex; align-items: center; gap: 0.25rem; padding: 2px 10px; border-radius: var(--radius-pill);
+    font-weight: 600; font-size: 0.875rem; font-variant-numeric: tabular-nums; direction: ltr;
+    background: var(--sm-surface-sunken); color: var(--sm-ink);
+  }
+  .timer-soon { background: var(--sm-saffron-soft); color: var(--sm-saffron-ink); }
+  .timer-final { background: var(--sm-ember); color: var(--sm-on-ember); }
+  .timer-ended { background: transparent; color: var(--sm-ink-muted); border: 1px solid var(--sm-line); }
+
+  .price { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .display { font-family: var(--font-display); font-weight: 400; }
+  .table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+  .table th { text-align: start; font-weight: 600; color: var(--sm-ink-muted); padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--sm-line); white-space: nowrap; }
+  .table td { padding: 0.625rem 0.75rem; border-bottom: 1px solid var(--sm-line); vertical-align: top; }
+}
