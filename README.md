@@ -1,4 +1,4 @@
-# Souq Auctions
+# Souq Mania
 
 Online auction and fixed-price marketplace for Egypt and the Middle East. Arabic first, with English.
 

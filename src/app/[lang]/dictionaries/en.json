@@ -1,5 +1,5 @@
 {
-  "site": { "name": "Souq Auctions", "tagline": "Bid, buy and sell across Egypt" },
+  "site": { "name": "Souq Mania", "tagline": "Bid, buy and sell across Egypt" },
   "nav": { "browse": "Browse", "sell": "Sell", "signIn": "Sign in", "switchLanguage": "العربية" },
   "hero": {
     "title": "Auctions and fixed-price deals, delivered to your door",

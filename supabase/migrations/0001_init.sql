@@ -1,4 +1,4 @@
--- Souq Auctions: core schema (users, listings, bids, orders).
+-- Souq Mania: core schema (users, listings, bids, orders).
 -- Money is stored in whole minor-free units of the listing currency (EGP at launch).
 
 create extension if not exists pgcrypto;
