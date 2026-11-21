@@ -1,0 +1,123 @@
+/* Souq Mania theme for Next.js + Tailwind v4. Import once in app/globals.css after @import "tailwindcss". */
+/* Fonts: load Lalezar and Readex Pro with next/font/google (subsets ["arabic","latin"]) and expose them as --font-lalezar and --font-readex. */
+
+:root {
+  --sm-hibiscus: #C8104F;
+  --sm-hibiscus-deep: #9A0B3C;
+  --sm-hibiscus-soft: #FDE7EE;
+  --sm-on-hibiscus: #FFFFFF;
+  --sm-saffron: #FFB81C;
+  --sm-saffron-soft: #FFF3D1;
+  --sm-on-saffron: #1C1220;
+  --sm-saffron-ink: #7A5200;
+  --sm-nile: #0B6E64;
+  --sm-nile-soft: #E3F4F0;
+  --sm-on-nile: #FFFFFF;
+  --sm-ember: #B23A0A;
+  --sm-ember-soft: #FDEDE3;
+  --sm-on-ember: #FFFFFF;
+  --sm-ink: #1C1220;
+  --sm-ink-muted: #6B5A66;
+  --sm-surface: #FFFBF8;
+  --sm-surface-raised: #FFFFFF;
+  --sm-surface-sunken: #F6EEEA;
+  --sm-line: #EADFE2;
+  --sm-line-strong: #8F7D89;
+  --sm-focus: var(--sm-nile);
+  --sm-shadow-card: 0 1px 2px rgba(28,18,32,0.06), 0 4px 14px rgba(28,18,32,0.06);
+  --sm-shadow-pop: 0 8px 28px rgba(28,18,32,0.16);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --sm-hibiscus: #FF5C8F;
+    --sm-hibiscus-deep: #FF8FB2;
+    --sm-hibiscus-soft: #3A1222;
+    --sm-on-hibiscus: #160F19;
+    --sm-saffron: #FFC23D;
+    --sm-saffron-soft: #3A2C0A;
+    --sm-on-saffron: #160F19;
+    --sm-saffron-ink: #FFC23D;
+    --sm-nile: #3FD1BC;
+    --sm-nile-soft: #0F2E2B;
+    --sm-on-nile: #160F19;
+    --sm-ember: #FF8A4C;
+    --sm-ember-soft: #3A1D12;
+    --sm-on-ember: #160F19;
+    --sm-ink: #F7EEF1;
+    --sm-ink-muted: #B7A6B1;
+    --sm-surface: #160F19;
+    --sm-surface-raised: #231A27;
+    --sm-surface-sunken: #0F0A11;
+    --sm-line: #3A2E3E;
+    --sm-line-strong: #86737F;
+    --sm-focus: var(--sm-nile);
+    --sm-shadow-card: 0 1px 2px rgba(0,0,0,0.4);
+    --sm-shadow-pop: 0 8px 28px rgba(0,0,0,0.55);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --sm-hibiscus: #FF5C8F;
+  --sm-hibiscus-deep: #FF8FB2;
+  --sm-hibiscus-soft: #3A1222;
+  --sm-on-hibiscus: #160F19;
+  --sm-saffron: #FFC23D;
+  --sm-saffron-soft: #3A2C0A;
+  --sm-on-saffron: #160F19;
+  --sm-saffron-ink: #FFC23D;
+  --sm-nile: #3FD1BC;
+  --sm-nile-soft: #0F2E2B;
+  --sm-on-nile: #160F19;
+  --sm-ember: #FF8A4C;
+  --sm-ember-soft: #3A1D12;
+  --sm-on-ember: #160F19;
+  --sm-ink: #F7EEF1;
+  --sm-ink-muted: #B7A6B1;
+  --sm-surface: #160F19;
+  --sm-surface-raised: #231A27;
+  --sm-surface-sunken: #0F0A11;
+  --sm-line: #3A2E3E;
+  --sm-line-strong: #86737F;
+  --sm-focus: var(--sm-nile);
+  --sm-shadow-card: 0 1px 2px rgba(0,0,0,0.4);
+  --sm-shadow-pop: 0 8px 28px rgba(0,0,0,0.55);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-hibiscus: var(--sm-hibiscus);
+  --color-hibiscus-deep: var(--sm-hibiscus-deep);
+  --color-hibiscus-soft: var(--sm-hibiscus-soft);
+  --color-on-hibiscus: var(--sm-on-hibiscus);
+  --color-saffron: var(--sm-saffron);
+  --color-saffron-soft: var(--sm-saffron-soft);
+  --color-on-saffron: var(--sm-on-saffron);
+  --color-saffron-ink: var(--sm-saffron-ink);
+  --color-nile: var(--sm-nile);
+  --color-nile-soft: var(--sm-nile-soft);
+  --color-on-nile: var(--sm-on-nile);
+  --color-ember: var(--sm-ember);
+  --color-ember-soft: var(--sm-ember-soft);
+  --color-on-ember: var(--sm-on-ember);
+  --color-ink: var(--sm-ink);
+  --color-ink-muted: var(--sm-ink-muted);
+  --color-surface: var(--sm-surface);
+  --color-surface-raised: var(--sm-surface-raised);
+  --color-surface-sunken: var(--sm-surface-sunken);
+  --color-line: var(--sm-line);
+  --color-line-strong: var(--sm-line-strong);
+  --color-focus: var(--sm-focus);
+  --font-display: var(--font-lalezar), "Readex Pro", system-ui, sans-serif;
+  --font-sans: var(--font-readex), "Noto Sans Arabic", system-ui, sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-arch: 999px;
+  --radius-pill: 999px;
+  --shadow-card: var(--sm-shadow-card);
+  --shadow-pop: var(--sm-shadow-pop);
+}
+
+body { background: var(--sm-surface); color: var(--sm-ink); font-family: var(--font-sans); }
+.tabular { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--sm-focus); outline-offset: 2px; }
