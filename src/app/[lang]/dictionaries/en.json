@@ -1,0 +1,28 @@
+{
+  "site": { "name": "Souq Mania", "tagline": "Bid, buy and sell across Egypt" },
+  "nav": { "browse": "Browse", "sell": "Sell", "signIn": "Sign in", "switchLanguage": "العربية" },
+  "hero": {
+    "title": "Auctions and fixed-price deals, delivered to your door",
+    "subtitle": "List an item in minutes. Bid in real time. Pay cash on delivery.",
+    "browse": "Browse listings",
+    "sell": "Start selling"
+  },
+  "categories": {
+    "title": "Categories",
+    "phones": "Phones",
+    "electronics": "Electronics",
+    "home": "Home",
+    "collectibles": "Collectibles"
+  },
+  "how": {
+    "title": "How it works",
+    "step1Title": "List",
+    "step1Body": "Add photos, a description and a start price or a Buy Now price.",
+    "step2Title": "Bid or buy",
+    "step2Body": "Buyers bid until the timer ends, or buy right away.",
+    "step3Title": "Deliver and get paid",
+    "step3Body": "The courier collects payment on delivery. Sellers are paid after the return window."
+  },
+  "listings": { "title": "Latest listings", "empty": "Listings open soon. Be the first to sell." },
+  "footer": { "rights": "All rights reserved." }
+}
