@@ -21,7 +21,7 @@ Open http://localhost:3000. You are redirected to `/ar` or `/en`.
 - `src/app/[lang]/` pages, one tree for both languages; `dir="rtl"` is set for Arabic
 - `src/app/[lang]/dictionaries/` all visible text, `ar.json` and `en.json`
 - `src/proxy.ts` sends visitors to their language
-- `supabase/migrations/` database schema, including the `place_bid` function that makes bidding safe when two people bid at once
+- `supabase/migrations/` database schema. `0001` is the core (users, listings, bids, orders). `0002` adds ID verification, Bid Guarantee (win confirmation, backup winner, strikes, deposits), swaps, the money ledger, shipping, notifications and admin tables. Bids only go through the `place_bid` function, which is safe when two people bid at once.
 
 ## Next steps
 
