@@ -11,6 +11,8 @@ export const env = {
   idHmacKey: process.env.ID_HMAC_KEY ?? "",
   cronSecret: process.env.CRON_SECRET ?? "",
   whatsappSupportNumber: process.env.WHATSAPP_SUPPORT_NUMBER ?? "",
+  /** Public address of the site, used in links the team sends on WhatsApp. No trailing slash. */
+  siteUrl: (process.env.NEXT_PUBLIC_SITE_URL ?? "").replace(/\/$/, ""),
 };
 
 const hasSupabase = () => Boolean(env.supabaseUrl && env.supabaseAnonKey);

@@ -1,5 +1,23 @@
 import Link from "next/link";
-import { getDictionary, getLocale } from "./dictionaries";
+import { connection } from "next/server";
+import { Suspense } from "react";
+import { ListingGrid } from "@/components/market";
+import { latestListings } from "@/lib/listings";
+import { type Dictionary, getDictionary, getLocale, type Locale } from "./dictionaries";
+
+/** Live data, so it streams in after the rest of the home page. */
+async function LatestListings({ dict, locale }: { dict: Dictionary; locale: Locale }) {
+  await connection();
+  const rows = await latestListings(8);
+  if (rows.length === 0) {
+    return <p className="mt-4 rounded-xl border border-dashed border-line px-4 py-10 text-center text-muted">{dict.listings.empty}</p>;
+  }
+  return (
+    <div className="mt-4">
+      <ListingGrid rows={rows} dict={dict} locale={locale} />
+    </div>
+  );
+}
 
 export default async function HomePage() {
   const [dict, locale] = await Promise.all([getDictionary(), getLocale()]);
@@ -57,9 +75,9 @@ export default async function HomePage() {
 
       <section className="py-8">
         <h2 className="text-xl font-bold">{dict.listings.title}</h2>
-        <p className="mt-4 rounded-xl border border-dashed border-line px-4 py-10 text-center text-muted">
-          {dict.listings.empty}
-        </p>
+        <Suspense fallback={<div className="mt-4 h-40 animate-pulse rounded-xl bg-surface-sunken" />}>
+          <LatestListings dict={dict} locale={locale} />
+        </Suspense>
       </section>
 
       <section className="py-8 pb-16">

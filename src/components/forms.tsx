@@ -1,6 +1,7 @@
 "use client";
 
 import { startTransition, useActionState, useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useRouter } from "next/navigation";
 import type { FormAction } from "@/lib/form";
 
 /**
@@ -154,4 +155,25 @@ export function ImageInput({
       )}
     </div>
   );
+}
+
+/** Re-reads the page from the server every few seconds, so bids and the timer stay current without websockets. */
+export function AutoRefresh({ endsAt, idleSeconds = 20 }: { endsAt?: string | null; idleSeconds?: number }) {
+  const router = useRouter();
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+    const schedule = () => {
+      const left = endsAt ? (new Date(endsAt).getTime() - Date.now()) / 1000 : Infinity;
+      // Faster near the end of an auction, when bids come in quickly.
+      const wait = left < -30 ? null : left < 180 ? 4 : idleSeconds;
+      if (wait === null) return;
+      timer = setTimeout(() => {
+        if (document.visibilityState === "visible") router.refresh();
+        schedule();
+      }, wait * 1000);
+    };
+    schedule();
+    return () => clearTimeout(timer);
+  }, [endsAt, idleSeconds, router]);
+  return null;
 }
