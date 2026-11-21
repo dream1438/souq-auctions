@@ -21,7 +21,17 @@ Open http://localhost:3000. You are redirected to `/ar` or `/en`.
 - `src/app/[lang]/` pages, one tree for both languages; `dir="rtl"` is set for Arabic
 - `src/app/[lang]/dictionaries/` all visible text, `ar.json` and `en.json`
 - `src/proxy.ts` sends visitors to their language
-- `supabase/migrations/` database schema. `0001` is the core (users, listings, bids, orders). `0002` adds ID verification, Bid Guarantee (win confirmation, backup winner, strikes, deposits), swaps, the money ledger, shipping, notifications and admin tables. Bids only go through the `place_bid` function, which is safe when two people bid at once.
+- `supabase/migrations/` database schema, applied in order. `0001` is the first core, `0002` adds ID verification, Bid Guarantee, swaps and admin tables, and `0003` is the reviewed marketplace core: money as whole minor units (piastres), automatic bidding with secret maximums, offers, the order state machine, payments, a double-entry ledger, returns, feedback, messaging and staff roles.
+- `supabase/tests/` SQL checks for the migrations, plus a stub of what Supabase provides so they run on a plain local Postgres.
+
+## Rules for app code
+
+- Read listings through the `listings_public` view. Never `select('*')` on `listings`; column access is restricted and the reserve price lives in `listing_private`.
+- Do not add `listings` to Supabase Realtime with all columns.
+- Money is a whole number in the currency's minor unit: EGP 1,250.50 is `125050`. Rates are basis points: 8% is `800`.
+- Bids go through `place_bid(listing, max_minor)`, which returns a `bid_result` and never reveals the leader.
+- New database functions get no default access. Grant `execute` explicitly to the roles that need it.
+- Ledger postings go through `post_journal`, service role only.
 
 ## Next steps
 
